@@ -22,6 +22,7 @@
             display: table;
             height: 100%; width: 100%;
             text-transform: uppercase;
+            overflow: hidden;
         }
         .hero > div {
             display: table-cell;
@@ -32,6 +33,23 @@
             font-size: 20px;
             font-weight: 600;
             letter-spacing: 2px;
+            display: inline-block;
+            position: relative;
+        }
+        h1:after {
+            content: "";
+            background: #fff;
+            height: 1200%;
+            width: 200%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -77%;
+            -webkit-transform: translateZ(0) translateY(-54px) rotateZ(-50deg);
+            -webkit-transition: -webkit-transform 2s ease-out;
+        }
+        .revealed h1:after {
+            -webkit-transform: translateZ(0) translateY(184px) rotateZ(40deg);
         }
         h2 {
             font-size: 25px;
@@ -49,5 +67,10 @@
             <h2>Coming soon</h2>
         </div>
     </div>
+    <script>
+        setTimeout(function(){
+            document.querySelector('.hero').className = 'hero revealed';
+        }, 0);
+    </script>
 </body>
 </html>
